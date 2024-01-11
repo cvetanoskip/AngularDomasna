@@ -21,7 +21,7 @@ reden:Number = 0;
 @Output()
 cuci = new EventEmitter<any>();
 newStyle: Record<string,string>={};
-backgroundStyle: Record<string,string>={};
+
 klasi(){
   var zname;
   if(this.vozac.category=="begginer")
@@ -31,17 +31,17 @@ klasi(){
   return {'poz':zname,'course-card':true}
 
 }
+backgroundStyle(){
+if(this.vozac.category=="begginer")
+return {'background-color':'green', 'font-size':'30px','color':'blue', 'font-weight':'10'}
+else 
+return {'background-color':'gold', 'font-size':'30px','color':'black', 'font-weight':'800'}
+}
 klik(){
-  var kategorija;
-  kategorija:this.vozac.category;
-  this.newStyle={
-    'color':'blue',
-    'font-size':'30px'
-  }
-  this.backgroundStyle={
-    'background-color':'green',
-    'font-size':'30px'
-  }
+  var link=this.vozac.iconUrl;
+  window.open(link,"_blank");
+  this.cuci.emit(this.vozac);
+
 }
 
 }
